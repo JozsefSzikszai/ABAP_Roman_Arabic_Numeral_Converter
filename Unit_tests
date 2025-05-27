@@ -1,0 +1,354 @@
+CLASS lct_numeral_converter DEFINITION DEFERRED.
+CLASS zcl_numeral_converter DEFINITION LOCAL FRIENDS lct_numeral_converter.
+
+CLASS lct_numeral_converter DEFINITION FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS
+.
+*?﻿<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+*?<asx:values>
+*?<TESTCLASS_OPTIONS>
+*?<TEST_CLASS>lct_Numeral_Converter
+*?</TEST_CLASS>
+*?<TEST_MEMBER>f_Cut
+*?</TEST_MEMBER>
+*?<OBJECT_UNDER_TEST>ZCL_NUMERAL_CONVERTER
+*?</OBJECT_UNDER_TEST>
+*?<OBJECT_IS_LOCAL/>
+*?<GENERATE_FIXTURE>X
+*?</GENERATE_FIXTURE>
+*?<GENERATE_CLASS_FIXTURE>X
+*?</GENERATE_CLASS_FIXTURE>
+*?<GENERATE_INVOCATION>X
+*?</GENERATE_INVOCATION>
+*?<GENERATE_ASSERT_EQUAL>X
+*?</GENERATE_ASSERT_EQUAL>
+*?</TESTCLASS_OPTIONS>
+*?</asx:values>
+*?</asx:abap>
+  PRIVATE SECTION.
+    DATA:
+      f_cut TYPE REF TO zcl_numeral_converter.  "class under test
+
+*    CLASS-METHODS: class_setup.
+*    CLASS-METHODS: class_teardown.
+*    METHODS: setup.
+*    METHODS: teardown.
+    METHODS: from_arabic_to_roman_3 FOR TESTING.
+    METHODS: from_arabic_to_roman_17 FOR TESTING.
+    METHODS: from_arabic_to_roman_29 FOR TESTING.
+    METHODS: from_arabic_to_roman_48 FOR TESTING.
+    METHODS: from_arabic_to_roman_71 FOR TESTING.
+    METHODS: from_arabic_to_roman_116 FOR TESTING.
+    METHODS: from_arabic_to_roman_333 FOR TESTING.
+    METHODS: from_arabic_to_roman_449 FOR TESTING.
+    METHODS: from_arabic_to_roman_772 FOR TESTING.
+    METHODS: from_arabic_to_roman_999 FOR TESTING.
+    METHODS: from_arabic_to_roman_1005 FOR TESTING.
+    METHODS: from_arabic_to_roman_1995 FOR TESTING.
+    METHODS: from_arabic_to_roman_2025 FOR TESTING.
+    METHODS: from_arabic_to_roman_3449 FOR TESTING.
+    METHODS: from_roman_to_arabic_5 FOR TESTING.
+    METHODS: from_roman_to_arabic_7 FOR TESTING.
+    METHODS: from_roman_to_arabic_17 FOR TESTING.
+    METHODS: from_roman_to_arabic_44 FOR TESTING.
+    METHODS: from_roman_to_arabic_159 FOR TESTING.
+    METHODS: from_roman_to_arabic_425 FOR TESTING.
+    METHODS: from_roman_to_arabic_601 FOR TESTING.
+    METHODS: from_roman_to_arabic_832 FOR TESTING.
+    METHODS: from_roman_to_arabic_999 FOR TESTING.
+    METHODS: is_roman_valid_simple_val FOR TESTING.
+    METHODS: is_roman_valid_simple_nonval FOR TESTING.
+ENDCLASS.       "lct_Numeral_Converter
+
+CLASS lct_numeral_converter IMPLEMENTATION.
+
+*  METHOD class_setup.
+*  ENDMETHOD.
+*
+*  METHOD class_teardown.
+*  ENDMETHOD.
+*
+*  METHOD setup.
+*    CREATE OBJECT f_cut.
+*  ENDMETHOD.
+*
+*  METHOD teardown.
+*  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_3.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 3 )
+      exp   = |III|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_17.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 17 )
+      exp   = |XVII|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_29.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 29 )
+      exp   = |XXIX|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_48.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 48 )
+      exp   = |XLVIII|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_71.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 71 )
+      exp   = |LXXI|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_116.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 116 )
+      exp   = |CXVI|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_333.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 333 )
+      exp   = |CCCXXXIII|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_449.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 449 )
+      exp   = |CDXLIX|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_772.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 772 )
+      exp   = |DCCLXXII|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_999.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 999 )
+      exp   = |CMXCIX|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_1005.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 1005 )
+      exp   = |MV|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_1995.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 1995 )
+      exp   = |MCMXCV|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_2025.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 2025 )
+      exp   = |MMXXV|
+    " msg   = 'Testing value rv_Roman'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_arabic_to_roman_3449.
+
+    cl_abap_unit_assert=>assert_equals(
+        act   = zcl_numeral_converter=>get_instance( )->from_arabic_to_roman( 3449 )
+        exp   = |MMMCDXLIX|
+      " msg   = 'Testing value rv_Roman'
+*     level =
+      ).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_5.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |V| )
+      exp   = 5
+    " msg   = 'Testing value rv_Arabic'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_7.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |VII| )
+      exp   = 7
+    " msg   = 'Testing value rv_Arabic'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_17.
+
+    cl_abap_unit_assert=>assert_equals(
+  act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |XVII| )
+  exp   = 17
+" msg   = 'Testing value rv_Arabic'
+*     level =
+).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_44.
+
+    cl_abap_unit_assert=>assert_equals(
+act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |XLIV| )
+exp   = 44
+" msg   = 'Testing value rv_Arabic'
+*     level =
+).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_159.
+
+    cl_abap_unit_assert=>assert_equals(
+act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |CLIX| )
+exp   = 159
+" msg   = 'Testing value rv_Arabic'
+*     level =
+).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_425.
+
+    cl_abap_unit_assert=>assert_equals(
+act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |CDXXV| )
+exp   = 425
+" msg   = 'Testing value rv_Arabic'
+*     level =
+).
+
+  ENDMETHOD.
+
+
+  METHOD from_roman_to_arabic_601.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |DCI| )
+      exp   = 601
+      " msg   = 'Testing value rv_Arabic'
+*           level =
+      ).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_832.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |DCCCXXXII| )
+      exp   = 832
+      " msg   = 'Testing value rv_Arabic'
+*           level =
+      ).
+
+  ENDMETHOD.
+
+  METHOD from_roman_to_arabic_999.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->from_roman_to_arabic( |CMXCIX| )
+      exp   = 999
+      " msg   = 'Testing value rv_Arabic'
+*           level =
+      ).
+
+  ENDMETHOD.
+
+  METHOD is_roman_valid_simple_val.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->is_roman_valid( |I| )
+      exp   = abap_true
+    " msg   = 'Testing value rv_Valid'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+  METHOD is_roman_valid_simple_nonval.
+
+    cl_abap_unit_assert=>assert_equals(
+      act   = zcl_numeral_converter=>get_instance( )->is_roman_valid( |K| )
+      exp   = abap_false
+    " msg   = 'Testing value rv_Valid'
+*     level =
+    ).
+
+  ENDMETHOD.
+
+ENDCLASS.
